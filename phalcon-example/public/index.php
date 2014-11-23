@@ -26,6 +26,18 @@ try {
        return $url;
    });
 
+   //Database
+
+   //Setup the database service
+    $di->set('db', function(){
+        return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+            "host" => "localhost",
+            "username" => "root",
+            "password" => "rootbiomedical",
+            "dbname" => "phalcondb"
+        ));
+    });
+
    //Handle the request
    $application = new \Phalcon\Mvc\Application($di);
 
